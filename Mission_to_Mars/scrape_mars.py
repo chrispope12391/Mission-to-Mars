@@ -1,38 +1,48 @@
-from flask import Flask, render_template, redirect
-from flask_pymongo import PyMongo
-import mission_to_mars
+from splinter import Browser
+from bs4 import BeautifulSoup
+from webdriver_manager.chrome import ChromeDriverManager
 
-# Create an instance of Flask
-app = Flask(__name__)
-
-# Use PyMongo to establish Mongo connection
-mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_db")
-
-
-# Route to render index.html template using data from Mongo
-@app.route("/")
-def home():
-
-    # Find one record of data from the mongo database
-    destination_data = mongo.db.collection.find_one()
-
-    # Return template and data
-    return render_template("index.html", vacation=destination_data)
-
-
-# Route that will trigger the scrape function
-@app.route("/scrape")
 def scrape():
+    # browser = init_browser()
+    executable_path = {'executable_path': ChromeDriverManager().install()}
+    browser = Browser('chrome', **executable_path, headless=False)
 
-    # Run the scrape function
-    costa_data = scrape_costa.scrape_info()
+    html = browser.html
 
-    # Update the Mongo database using update and upsert=True
-    mongo.db.collection.update({}, costa_data, upsert=True)
+    # Parse HTML with Beautiful Soup
+    soup = BeautifulSoup(html, 'html.parser')
 
-    # Redirect back to home page
-    return redirect("/")
+    # Retrieve all elements that contain mars article information
+    mars_results = soup.find_all('div', class_='col-md-8')
 
+    mars_title = []
+    mars_teaser = []
 
-if __name__ == "__main__":
-    app.run(debug=True)
+    # Identify the title and teaser article in each article
+    for result in mars_results:
+
+        # Error handling
+        try:
+
+            #identify and return the title
+            title = result.find('div', class_='content_title').text
+            #identify and return the teaser article
+            teaser = result.find('div', class_='article_teaser_body').text
+            mars_title.append(title)
+            mars_teaser.append(teaser)
+
+            #Print title and teaser article
+            if (title and teaser):
+
+                print('-------------------------------------------')
+                print(title)
+                print(teaser)
+
+        except AttributeError as e:
+            print("No Title Available")
+
+    browser.quit()
+    
+    return mars_title[0]
+    return mars_teaser[0]
+
