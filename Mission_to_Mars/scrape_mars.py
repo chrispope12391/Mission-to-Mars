@@ -9,7 +9,7 @@ def scrape():
     ##This will the 
     # browser = init_browser()
     executable_path = {'executable_path': ChromeDriverManager().install()}
-    browser = Browser('chrome', **executable_path, headless=False)
+    browser = Browser('chrome', **executable_path, headless=True)
 
     url = 'https://redplanetscience.com/'
     browser.visit(url)
@@ -49,13 +49,15 @@ def scrape():
 
     new_browser.quit()
 
-    # facts_url = "https://galaxyfacts-mars.com/"
+    facts_url = "https://galaxyfacts-mars.com/"
 
-    # tables = pd.read_html(facts_url)
+    tables = pd.read_html(facts_url)
 
-    # facts_df = tables[1]
+    facts_df = tables[1]
 
-    # mars_scrape = mars_scrape.insert_many(tables)
+    facts_html = facts_df.to_html()
+
+    mars_scrape['facts_df'] = facts_html
 
     hemi_url = "https://marshemispheres.com/"
     valles_url = hemi_url +"valles.html"
