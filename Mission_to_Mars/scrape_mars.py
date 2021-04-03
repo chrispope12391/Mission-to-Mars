@@ -32,7 +32,7 @@ def scrape():
     browser.quit()
     
     # This will pull the featured image
-    new_browser = Browser('chrome', **executable_path, headless=False)
+    new_browser = Browser('chrome', **executable_path, headless=True)
 
     image_url = "https://spaceimages-mars.com/"
     new_browser.visit(image_url)
@@ -66,10 +66,10 @@ def scrape():
     syrt_url = hemi_url +"syrtis.html"
 
     #create browsers for each hemisphere
-    valles_browser = Browser('chrome', **executable_path, headless=False)
-    cerb_browser = Browser('chrome', **executable_path, headless=False)
-    schia_browser = Browser('chrome', **executable_path, headless=False)
-    syrt_browser = Browser('chrome', **executable_path, headless=False)
+    valles_browser = Browser('chrome', **executable_path, headless=True)
+    cerb_browser = Browser('chrome', **executable_path, headless=True)
+    schia_browser = Browser('chrome', **executable_path, headless=True)
+    syrt_browser = Browser('chrome', **executable_path, headless=True)
 
 
     valles_browser.visit(valles_url)
