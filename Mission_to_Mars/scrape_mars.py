@@ -45,7 +45,7 @@ def scrape():
     # Retrieve all elements that contain header image information
     image_results = new_soup.find('img', class_='headerimage fade-in')['src']
 
-    mars_scrape['feautred_img_url'] = image_url+image_results
+    mars_scrape['featured_img_url'] = image_url+image_results
 
     new_browser.quit()
 
@@ -53,7 +53,9 @@ def scrape():
 
     tables = pd.read_html(facts_url)
 
-    facts_df = tables[1]
+    facts_df = tables[0]
+
+    facts_df = facts_df.rename(columns={"0":"", "1":"Mars", "2":"Earth"})
 
     facts_html = facts_df.to_html()
 
