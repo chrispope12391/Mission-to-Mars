@@ -55,9 +55,17 @@ def scrape():
 
     facts_df = tables[0]
 
-    facts_df = facts_df.rename(columns={"0":"", "1":"Mars", "2":"Earth"})
+    facts_df.columns = ['','Mars','Earth']
 
-    facts_html = facts_df.to_html()
+    new_row = pd.DataFrame({"":"Description", " ":" ", " ":" "}, index=[0])
+
+    facts_df = pd.concat([new_row, facts_df[:]]).reset_index(drop = True)
+
+    facts_df = facts_df.fillna(" ")
+
+    facts_df = facts_df.set_index(" ")
+
+    facts_html = facts_df.to_html(border = 2)
 
     mars_scrape['facts_df'] = facts_html
 
