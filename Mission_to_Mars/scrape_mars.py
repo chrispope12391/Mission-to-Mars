@@ -36,6 +36,16 @@ def scrape():
     image_url = "https://spaceimages-mars.com/"
     new_browser.visit(image_url)
 
+    new_html = new_browser.html
+
+    # Parse HTML with Beautiful Soup
+    new_soup = BeautifulSoup(new_html, 'html.parser')
+
+    # Retrieve all elements that contain header image information
+    image_results = new_soup.find('img', class_='headerimage fade-in')['src']
+
+    mars_scrape['feautred_img_url'] = image_url+image_results
+
     new_browser.quit()
 
     return mars_scrape
