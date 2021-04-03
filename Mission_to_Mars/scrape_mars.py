@@ -127,7 +127,15 @@ def scrape():
 
     syrt_browser.quit()
 
-    mars_scrape['hemi_title'] = hemi_title
-    mars_scrape['hemi_image_url'] = hemi_image_url
+    hemisphere_image_urls = [
+    {"title": hemi_title[0], "img_url": hemi_image_url[0]},
+    {"title": hemi_title[1], "img_url": hemi_image_url[1]},
+    {"title": hemi_title[2], "img_url": hemi_image_url[2]},
+    {"title": hemi_title[3], "img_url": hemi_image_url[3]}
+    ]
+
+
+    mars_scrape['hemi_image_title'] = hemisphere_image_urls
 
     return mars_scrape
+
