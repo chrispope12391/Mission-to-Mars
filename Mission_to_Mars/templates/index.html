@@ -19,30 +19,33 @@
     <!-- Mars information -->
     <div class="row">
       <div class="col-md-12">
+        <!-- Row title -->
           <h3 style="font-weight: bold; margin-top: 3px; margin-bottom: 3px;">Latest Mars News</h3>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <!-- <h1 class="heading">Latest Mars News</h1> -->
+        <!-- pulls featured title of article from mongoDB and returns -->
         <h4 style="margin-top: 3px; margin-bottom: 3px; font-weight: bold;">{{mars_scrape.title}}</h4>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-12">
-        <!-- <h1 class="heading">Latest Mars News</h1> -->
+        <!-- pulls a teaser of the featured article from mongodb  -->
         <h5 style="margin-top: 3px; margin-bottom: 3px;">{{mars_scrape.teaser}}</h5>
       </div>
     </div>
     <div class="row" style="margin-top: 50px;">
       <div class="col-md-6">
         <div class="row">
+          <!-- in this row we write the messeage "Featured Mars Image and pull the image of the featured mars image" -->
           <h3 style="font-weight: bold; margin-top: 3px; margin-bottom: 3px;">Featured Mars Image</h3>
           <img src = "{{mars_scrape.featured_img_url}}" alt = "Mars Featured Image">
         </div>
       </div>
       <div class="col-md-6">
         <div class="row" style="padding-left: 100px;">
+          <!-- Write out message "Mars Facts" and pulls mars facts html table from mongo db -->
           <h3 style="font-weight: bold; margin-top: 3px; margin-bottom: 3px;">Mars Facts</h3>
           <table>{{mars_scrape.facts_df | safe}}</table>
         </div>
@@ -50,7 +53,9 @@
     </div>
     <div class="row">
       <div class="col-md-12">
+          <!-- pull the hemisphere images as well as their names and display them inline-block. Put border around each image -->
           <h3 style="font-weight: bold; margin-top: 60px; margin-bottom: 30px; text-align: center;">Mars Hemispheres</h3>
+          <!-- create a line to that extends the width of page -->
           <hr style="width: 100%; height:1px;border-width:0;color:lightgray;background-color:lightgray; margin-bottom: 20px;">
       </div> 
     </div>
@@ -73,6 +78,7 @@
       </div>
     </div>
     <div class="row">
+      <!-- create a line to that extends the width of page -->
       <hr style="width: 100%; height:1px;border-width:0;color:lightgray;background-color:lightgray; margin-bottom: 40px; margin-top: 40px;">
     </div>
 
