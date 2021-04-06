@@ -68,7 +68,7 @@ Use MongoDB with Flask templating to create a new HTML page that displays all of
 * CSS
 * Bootstrap
 
-# Author(S)
+# Author(s)
 * Chris Pope
 
 # Contact:
