@@ -2,7 +2,7 @@
 Created a launchable HTML file population with information regarding the planet Mars that was scraped from various websites.
 
 
-# Getting Started
+## Getting Started
 
 1. Create a new repository and title it as you please. My repository is titled "web-scraping-challenge.
 
@@ -14,9 +14,9 @@ Created a launchable HTML file population with information regarding the planet 
 
 1. Push the above changes to GitHub or GitLab.
 
-# Summary
+## Summary
 
-## Scraping
+### Scraping
 
 The first thing we did was to create a jupyter notebook to create a road map for our app.py follow while creating a database to house all of our scraped Mars information. There are four different pieces we seeked to obtain:
 
@@ -32,7 +32,7 @@ The first thing we did was to create a jupyter notebook to create a road map for
 1. The image and the name of each of Mar's Hemispheres from the website Mars Hemispheres.
     * __Website:__ https://marshemispheres.com/
 
-## MongoDB and Flask Appliation
+### MongoDB and Flask Appliation
 
 Use MongoDB with Flask templating to create a new HTML page that displays all of the information that was scraped from the URLs above. 
 
@@ -53,13 +53,13 @@ Use MongoDB with Flask templating to create a new HTML page that displays all of
 
 ![flask](https://user-images.githubusercontent.com/75814760/113653918-5872ac80-965c-11eb-8630-14628762290a.jpg)
 
-# Built With
+## Built With
 * Jupyter Notebook
 * Visual Studio Code
 * MongoDB
 * Flask
 
-# Languages
+## Languages
 * Python
 * Pandas
 * BeautifulSoup
@@ -68,8 +68,8 @@ Use MongoDB with Flask templating to create a new HTML page that displays all of
 * CSS
 * Bootstrap
 
-# Author(S)
+## Author(s)
 * Chris Pope
 
-# Contact:
+## Contact:
 __Email:__ popex107@umn.edu
