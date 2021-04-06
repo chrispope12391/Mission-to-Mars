@@ -1,5 +1,5 @@
 # web-scraping-challenge
-Created a launchable HTML file population with information regarding the planet Mars that was scraped from various websites.
+Generate a Flask application that displays information regarding the planet Mars that was scraped from various websites.
 
 
 ## Getting Started
